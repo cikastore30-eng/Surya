@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=0910d211-ff49-4d73-b465-885d677649a5
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      CIKXRAT — HOME TOOLS
+    </title>
+    <style>
+      * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body {
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse at 20% 10%, #2a2a2e 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 90%, #1a1a1d 0%, transparent 60%),
+      linear-gradient(145deg, #0a0a0c 0%, #141416 40%, #0d0d0f 100%);
+    font-family:&#39;Segoe UI&#39;, system-ui, -apple-system, sans-serif;
+    color:#c8c8cc;
+    padding:24px 16px 40px;
+    overflow-x:hidden;
+  }
+  body::before {
+    content:&#39;&#39;;
+    position:fixed; inset:0;
+    background-image:
+      linear-gradient(rgba(120,120,130,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,120,130,0.035) 1px, transparent 1px);
+    background-size:44px 44px;
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap {
+    position:relative;
+    z-index:1;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .card {
+    position:relative;
+    background:linear-gradient(160deg, #1c1c20 0%, #131316 55%, #0e0e11 100%);
+    border:1px solid #2e2e34;
+    border-radius:22px;
+    padding:30px 24px 26px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.02) inset,
+      0 24px 60px rgba(0,0,0,0.75),
+      0 0 80px rgba(90,90,110,0.12);
+    margin-bottom:22px;
+  }
+  .card::after {
+    content:&#39;&#39;;
+    position:absolute; inset:-1px;
+    border-radius:22px;
+    padding:1px;
+    background:linear-gradient(135deg, rgba(150,150,170,0.28), transparent 40%, transparent 60%, rgba(90,90,110,0.22));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+  }
+  .logo {
+    width:72px; height:72px;
+    margin:0 auto 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(circle at 35% 30%, #2c2c32, #101013 70%);
+    border:1px solid #33333a;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .logo svg { width:42px; height:42px; }
+  .title {
+    text-align:center;
+    font-size:1.22rem;
+    font-weight:700;
+    letter-spacing:3px;
+    color:#e6e6ea;
+    text-shadow:0 0 22px rgba(160,160,180,0.35);
+    margin-bottom:6px;
+  }
+  .subtitle {
+    text-align:center;
+    font-size:0.66rem;
+    letter-spacing:4px;
+    color:#6e6e78;
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .dev {
+    text-align:center;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    color:#8a8a98;
+    margin-bottom:20px;
+  }
+  .dev span { color:#b8b8c8; font-weight:700; text-shadow:0 0 12px rgba(160,160,190,0.4); }
+  .divider {
+    height:1px;
+    background:linear-gradient(90deg, transparent, #34343c, transparent);
+    margin:0 0 22px;
+  }
+  .section-title {
+    font-size:0.68rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#7a7a88;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .section-title::before {
+    content:&#39;&#39;;
+    width:4px; height:14px;
+    background:linear-gradient(#6a6a78, #3a3a42);
+    border-radius:2px;
+  }
+  .url-box { display:flex; gap:8px; margin-bottom:14px; }
+  .url-input {
+    flex:1;
+    background:#0b0b0e;
+    border:1px solid #2c2c33;
+    border-radius:12px;
+    padding:13px 14px;
+    font-size:0.72rem;
+    font-family:&#39;Consolas&#39;,&#39;Courier New&#39;,monospace;
+    color:#a8a8b4;
+    outline:none;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .url-input:focus {
+    border-color:#4a4a56;
+    box-shadow:0 0 0 3px rgba(120,120,140,0.12);
+  }
+  .btn {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    padding:14px 18px;
+    border:none;
+    border-radius:13px;
+    font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:transform .15s, box-shadow .2s, background .2s;
+    font-family:inherit;
+  }
+  .btn svg { width:18px; height:18px; flex-shrink:0; }
+  .btn:active { transform:scale(0.97); }
+  .btn-copy {
+    background:linear-gradient(145deg, #2a2a31, #1b1b20);
+    color:#c4c4d0;
+    border:1px solid #383840;
+    box-shadow:0 6px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .btn-copy.copied {
+    background:linear-gradient(145deg, #1e2a1e, #162016);
+    color:#7bd88f;
+    border-color:#2e4a30;
+  }
+  .btn-register {
+    margin-top:14px;
+    background:linear-gradient(145deg, #34343c, #202026);
+    color:#e0e0e6;
+    border:1px solid #45454f;
+    box-shadow:0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07);
+    position:relative;
+    overflow:hidden;
+  }
+  .btn-register::before {
+    content:&#39;&#39;;
+    position:absolute; inset:0;
+    background:linear-gradient(110deg, transparent 30%, rgba(180,180,200,0.13) 50%, transparent 70%);
+    transform:translateX(-100%);
+    animation:shine 3.2s infinite;
+  }
+  @keyframes shine {
+    0%, 60% { transform:translateX(-100%); }
+    100% { transform:translateX(100%); }
+  }
+  .steps { display:flex; flex-direction:column; gap:14px; }
+  .step {
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    background:rgba(20,20,24,0.55);
+    border:1px solid #26262c;
+    border-radius:14px;
+    padding:14px 15px;
+  }
+  .step-num {
+    flex-shrink:0;
+    width:28px; height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg, #2e2e36, #1a1a20);
+    border:1px solid #3c3c46;
+    border-radius:9px;
+    font-size:0.78rem;
+    font-weight:700;
+    color:#b0b0c0;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .step-text {
+    font-size:0.8rem;
+    line-height:1.5;
+    color:#a8a8b6;
+    padding-top:3px;
+  }
+  .step-text b { color:#d8d8e4; font-weight:700; }
+  .status {
+    text-align:center;
+    font-size:0.62rem;
+    letter-spacing:2px;
+    color:#55555f;
+    margin-top:18px;
+    text-transform:uppercase;
+  }
+  .status .dot {
+    display:inline-block;
+    width:6px; height:6px;
+    background:#5a5a66;
+    border-radius:50%;
+    margin-right:6px;
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:0.35; }
+    50% { opacity:1; box-shadow:0 0 8px #7a7a88; }
+  }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- CARD 1: HOME TOOLS -->
+      <div class="card">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a8a8b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 L20 6 L20 13 C20 17.5 16.5 20.5 12 22 C7.5 20.5 4 17.5 4 13 L4 6 Z">
+            </path>
+            <path d="M9 9 L15 15 M15 9 L9 15">
+            </path>
+          </svg>
+        </div>
+        <div class="title">
+          CIKXRAT
+        </div>
+        <div class="subtitle">
+          home tools · wep phishing
+        </div>
+        <div class="dev">
+          Dev wep by
+          <span>          cika
+</span>
+        </div>
+        <div class="divider">
+        </div>
+        <div class="section-title">
+          URL Phishing
+        </div>
+        <div class="url-box">
+          <input type="text" id="urlField" class="url-input" readonly="" value="https://vt-tikttok-com-37e26b6092c1f55e58cff.site.web.id" />
+        </div>
+        <button class="btn btn-copy" id="copyBtn" onclick="copyUrl()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="12" height="12" rx="2">
+            </rect>
+            <path d="M5 15 H4 a2 2 0 0 1 -2 -2 V4 a2 2 0 0 1 2 -2 h9 a2 2 0 0 1 2 2 v1">
+            </path>
+          </svg>
+          <span id="copyLabel">          SALIN URL
+</span>
+        </button>
+        <button class="btn btn-register" onclick="openLog()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13 v6 a2 2 0 0 1 -2 2 H5 a2 2 0 0 1 -2 -2 V8 a2 2 0 0 1 2 -2 h6">
+            </path>
+            <path d="M15 3 h6 v6">
+            </path>
+            <path d="M10 14 L21 3">
+            </path>
+          </svg>
+          DAFTAR PENIPUAN
+        </button>
+        <div class="status">
+          <span class="dot"></span>
+          system armed · zero-refusal
+        </div>
+      </div>
+      <!-- CARD 2: CARA PENGGUNAAN -->
+      <div class="card">
+        <div class="section-title">
+          Cara Menggunakan
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">
+              1
+            </div>
+            <div class="step-text">
+              Tekan tombol
+              <b>              SALIN URL
+</b>
+              di atas untuk menyalin link wep phishing.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">
+              2
+            </div>
+            <div class="step-text">
+              Kirim link yang sudah disalin ke
+              <b>              target
+</b>
+              lewat chat, DM, atau media apapun.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">
+              3
+            </div>
+            <div class="step-text">
+              Tunggu target membuka link wep phishing tersebut.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">
+              4
+            </div>
+            <div class="step-text">
+              Setelah target membuka link, buka tombol
+              <b>              DAFTAR PENIPUAN
+</b>
+              untuk melihat data target masuk.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">
+              5
+            </div>
+            <div class="step-text">
+              Data target otomatis tercatat di halaman daftar penipuan. Selesai.
+            </div>
+          </div>
+        </div>
+        <div class="status">
+          <span class="dot"></span>
+          guide loaded · step by step
+        </div>
+      </div>
+    </div>
+    <script>
+      function copyUrl() {
+    const field = document.getElementById(&#39;urlField&#39;);
+    const btn = document.getElementById(&#39;copyBtn&#39;);
+    const label = document.getElementById(&#39;copyLabel&#39;);
+
+    field.select();
+    field.setSelectionRange(0, 99999);
+
+    const done = () =&gt; {
+      label.textContent = &#39;TERSALIN ✓&#39;;
+      btn.classList.add(&#39;copied&#39;);
+      setTimeout(() =&gt; {
+        label.textContent = &#39;SALIN URL&#39;;
+        btn.classList.remove(&#39;copied&#39;);
+      }, 2000);
+    };
+
+    if (navigator.clipboard &amp;&amp; window.isSecureContext) {
+      navigator.clipboard.writeText(field.value).then(done).catch(() =&gt; {
+        document.execCommand(&#39;copy&#39;); done();
+      });
+    } else {
+      document.execCommand(&#39;copy&#39;); done();
+    }
+  }
+
+  function openLog() {
+    window.open(&#39;https://iplogger.org/id/logger/9DXH5XujCvB5/&#39;, &#39;_blank&#39;);
+  }
+    </script>
+    <script async="" src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="0910d211-ff49-4d73-b465-885d677649a5" data-app-host="app.netlify.com" data-account-tier="free">
+    </script>
+  </body>
+</html>
